@@ -1,0 +1,93 @@
+html {
+  background-color: rgb(9, 25, 54);
+  font-family:Arial, Helvetica, sans-serif;
+  margin-top: 20px;
+}
+
+.box {
+  display: block;
+  background-color: #fefefe;
+  /* margin: 2% auto 15% auto; */
+  margin: 0 auto;
+  margin-bottom: 25px;
+  width: 550px;
+  min-width: 500px;
+  padding: 10px 22px 35px 20px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+  padding-top: 30px !important;
+  padding-left: 30px;
+}
+
+.center {
+  text-align: center;
+  margin: 0 auto !important;
+}
+
+.full {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  width: 95%;
+  height: 23px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.small {
+  font-size: 15px !important;
+  display: inline;
+  margin-bottom: 10px !important;
+}
+
+.red {
+  color: red;
+  /* font-size: 10px !important; */
+  display: inline;
+}
+
+select {
+  width: 97%;
+  height: 30px;
+  margin-bottom: 15px;
+}
+
+.inline {
+  display: inline;
+  width: 25% !important;
+}
+
+label[for="budget"] {
+  margin-top: 15px;
+}
+
+.space {
+  margin-bottom: 15px;
+}
+
+.fb9 {
+  border: 1px solid #3366FF;
+  background-color: #B3C6FF;
+  width:150px;
+  height:30px;
+}
+
+.g-recaptcha {
+  margin-bottom: 30px;
+}
+
+.sub-button {
+  /* margin: 0 auto; */
+  margin-top: 30px;
+  color: white;
+  background-color: rgb(99, 139, 199);
+  height:35px; 
+  width:110px; 
+  margin: -20px -50px; 
+  position:relative;
+  top:50%; 
+  left:50%;
+  border-style: solid;
+  border: none;
+
+}
