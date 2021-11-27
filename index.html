@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Survey Form</title>
     <link rel="stylesheet" href="forms.css"/>
-    <!-- <script src="verify.js"></script> -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
@@ -97,6 +96,8 @@
       <br/>
       <label for="email" class="bold">Email</label><p class="red">*</p><span id="errorEmail"></span><br/>
       <input class="full"type="email" id="emaillast" placeholder="Email"required>
+
+      <div class="g-recaptcha" data-sitekey="6Lf0m2AdAAAAAGYBtVqctsEp_aRHfIyZ85luNwMw"></div>
       <button class="sub-button" onclick="verification()">Submit</button>
     </div>
     <br/>
