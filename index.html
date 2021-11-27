@@ -95,9 +95,9 @@
       </select>
       <br/>
       <label for="email" class="bold">Email</label><p class="red">*</p><span id="errorEmail"></span><br/>
-      <input class="full"type="email" id="emaillast" placeholder="Email"required>
+      <input class="full"type="email" id="emaillast" placeholder="Email"required><br/>
 
-      <div class="g-recaptcha" data-sitekey="6Lf0m2AdAAAAAGYBtVqctsEp_aRHfIyZ85luNwMw"></div>
+      <p class="red">*</p><div class="g-recaptcha" data-sitekey="6Lf0m2AdAAAAAGYBtVqctsEp_aRHfIyZ85luNwMw"></div>
       <button class="sub-button" onclick="verification()">Submit</button>
     </div>
     <br/>
@@ -250,8 +250,8 @@
       function initMap() {
         var geocoder = new google.maps.Geocoder();
         var address = document.getElementById("address").value;
-        var latitude;
-        var longitude;
+        var latitude = 36.7783;
+        var longitude = -119.4179;
 
         geocoder.geocode({'address': address}, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
