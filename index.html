@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Survey Form</title>
     <link rel="stylesheet" href="forms.css"/>
-    <script src="verify.js"></script>
+    <!-- <script src="verify.js"></script> -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
@@ -74,17 +74,17 @@
       <input id="zipcode" placeholder="12345" class="full zip-code" type="text" required><br/>
 
       <label class="bold">Check all services you require</label><br/>
-      <input id="email" type="checkbox" id="email" name="email" value="email">
+      <input id="emailChecked" type="checkbox" id="email" name="email" value="email">
       <p for="email" class="inline short-text">Email</p><br>
-      <input id="phone" type="checkbox" id="phone" name="phone" value="phone">
+      <input id="phoneChecked" type="checkbox" id="phone" name="phone" value="phone">
       <p for="phone" class="inline short-text">Phone</p><br>
-      <input id="facebook" type="checkbox" id="facebook" name="facebook" value="facebook">
+      <input id="facebookChecked" type="checkbox" id="facebook" name="facebook" value="facebook">
       <p for="facebook" class="inline short-text">Facebook</p><br>
-      <input id="twitter" type="checkbox" id="twitter" name="twitter" value="twitter">
-      <p for="twitter" class="inline short-text">Twitter</p><br>
-      <input id="surface-mail" type="checkbox" id="surface-mail" name="surface-mail" value="surface-mail">
-      <p for="surface-mail" class="inline short-text">Surface Mail</p><br>
-      <input id="personal" type="checkbox" id="personal" name="personal" class="space" value="personal">
+      <input id="twitterChecked" type="checkbox" id="twitter" name="twitter" value="twitter">
+      <p for="twitterChecked" class="inline short-text">Twitter</p><br>
+      <input id="surfacemailChecked" type="checkbox" id="surface-mail" name="surface-mail" value="surface-mail">
+      <p for="surfacemail" class="inline short-text">Surface Mail</p><br>
+      <input id="personalChecked" type="checkbox" id="personal" name="personal" class="space" value="personal">
       <p for="personal" class="inline short-text">Personal Visit</p><br/>
 
       <label for="budget" class="bold">Your monthly budget for services</label>
@@ -113,7 +113,6 @@
           valid = false;
         } else {
           document.getElementById("errorName").innerHTML = "";
-          // valid = true;
         }
 
         // let title = document.getElementById("title").value;
@@ -186,6 +185,43 @@
 
           let email = document.getElementById("emaillast").value;
           document.getElementById("emailvalid").innerHTML = email;
+
+
+          let services = [];
+          let emailChecked = document.getElementById("emailChecked").checked;
+          let phoneChecked = document.getElementById("phoneChecked").checked;
+          let facebookChecked = document.getElementById("facebookChecked").checked;
+          let twitterChecked = document.getElementById("twitterChecked").checked;
+          let surfacemailChecked = document.getElementById("surfacemailChecked").checked;
+          let personalChecked = document.getElementById("personalChecked").checked;
+
+          if (emailChecked) {
+            services.push("Email");
+          }
+          if (phoneChecked) {
+            services.push("Phone");
+          }
+          
+          if (facebookChecked) {
+            services.push("Facebook");
+          }
+          if (twitterChecked) {
+            services.push("Twitter");
+          }
+          if (surfacemailChecked) {
+            services.push("Surface Mail");
+          }
+
+          if (personalChecked) {
+            services.push("Personal Visit");
+          }
+
+          if (services.length > 0) {
+            document.getElementById("servicesvalid").innerHTML = "";
+          }
+          for (let i = 0; i < services.length; i++) {
+            document.getElementById("servicesvalid").innerHTML += services[i] + "<br/>";
+          }
         }
       }
     </script>
