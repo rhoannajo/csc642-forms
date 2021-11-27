@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Survey Form</title>
+    <link rel="stylesheet" href="forms.css"/>
+    <script src="verify.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+    <div class="box">
+      <h1 class="center">Data Survey Form</h1>
+      <hr/>
+      <p class="red">*</p><p class="small">indicates required</p>
+      <br/>
+
+      <br/>
+      <label class="bold">Last, First Name</label><p class="red">*</p><span id="errorName"></span>
+      <input id="name" placeholder="Last, First Name" class="full" type="text" required>
+      <br/>
+
+      <label class="bold">Preferred Title</label><p class="red">*</p><span id="errorTitle"></span>
+      <select id="title" required>
+        <option value="" disabled selected>Select your option</option>
+        <option value="none">None</option>
+        <option value="Student">Student</option>
+        <option value="Professor">Professor</option>
+        <option value="Staff">Staff</option>
+        <option value="Retired">Retired</option>
+      </select>
+      <br/>
+      <label class="bold">Height</label><br/>
+      <select id="foot" class="inline">
+        <option value="" disabled selected>Foot</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      ft.
+      <select id="inches" class="inline">
+        <option value="" disabled selected>Inches</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+      </select>
+      in.
+      <br/>
+      <label class="bold">Phone</label><span id="errorPhone"></span>
+      <input id="phone" placeholder="1234567789" class="full" type="text">
+      <br/>
+      <label class="bold">Address</label><p class="red">*</p><span id="errorAddress"></span>
+      <input id="address" placeholder="123 Name Street" class="full" type="text" required>
+      <br/>
+
+      <label class="bold">Zip Code</label><p class="red">*</p><span id="errorZipCode"></span><br/>
+      <input id="zipcode" placeholder="12345" class="full zip-code" type="text" required><br/>
+
+      <label class="bold">Check all services you require</label><br/>
+      <input id="email" type="checkbox" id="email" name="email" value="email">
+      <p for="email" class="inline short-text">Email</p><br>
+      <input id="phone" type="checkbox" id="phone" name="phone" value="phone">
+      <p for="phone" class="inline short-text">Phone</p><br>
+      <input id="facebook" type="checkbox" id="facebook" name="facebook" value="facebook">
+      <p for="facebook" class="inline short-text">Facebook</p><br>
+      <input id="twitter" type="checkbox" id="twitter" name="twitter" value="twitter">
+      <p for="twitter" class="inline short-text">Twitter</p><br>
+      <input id="surface-mail" type="checkbox" id="surface-mail" name="surface-mail" value="surface-mail">
+      <p for="surface-mail" class="inline short-text">Surface Mail</p><br>
+      <input id="personal" type="checkbox" id="personal" name="personal" class="space" value="personal">
+      <p for="personal" class="inline short-text">Personal Visit</p><br/>
+
+      <label for="budget" class="bold">Your monthly budget for services</label>
+      <select id="budget">
+        <option value="" disabled selected>Select an option</option>
+        <option value="less than $50">less than $50</option>
+        <option value="between $50 and $100">between $50 and $100</option>
+        <option value="above $100">above $100</option>
+      </select>
+      <br/>
+      <label for="email" class="bold">Email</label><p class="red">*</p><span id="errorEmail"></span><br/>
+      <input class="full"type="email" id="emaillast" placeholder="Email"required>
+      <button class="sub-button" onclick="verification()">Submit</button>
+    </div>
+    <br/>
+
+    <script>
+      function verification() {
+
+        var valid = true;
+
+        let name = document.getElementById("name").value;
+
+        if (name.length === 0) {
+          document.getElementById("errorName").innerHTML = "<label class='error-text'>Please enter full name.</label>";
+          valid = false;
+        } else {
+          document.getElementById("errorName").innerHTML = "";
+          // valid = true;
+        }
+
+        // let title = document.getElementById("title").value;
+        // if (title !== "none" || title !== "Student" || title !== "Professor" || title !== "Staff" || title !== "Retired") {
+        //   document.getElementById("errorTitle").innerHTML = "<label class='error-text'>Please enter title.</label>";
+        //   valid = false;
+        // } else {
+        //   document.getElementById("errorTitle").innerHTML = "";
+        //   valid = true;
+        // }
+
+        let phone = document.getElementById("phone").value;
+        if (phone.length > 10) {
+          document.getElementById("errorPhone").innerHTML = "<label class='error-text'>Enter 10 digit phone number</label>";
+          valid = false;
+        } else {
+          document.getElementById("errorPhone").innerHTML = "";
+          // valid = true;
+        }
+
+        let address = document.getElementById("address").value;
+        
+        if (address.length === 0 || address.length < 0) {
+          document.getElementById("errorAddress").innerHTML = "<label class='error-text'>Please enter your address.</label>";
+          valid = false;
+        } else {
+          document.getElementById("errorAddress").innerHTML = "";
+          // valid = true;
+        }
+
+        let zipcode = document.getElementById("zipcode").value;
+        if (zipcode.length !== 5) {
+          document.getElementById("errorZipCode").innerHTML = "<label class='error-text'>Please enter zip code.</label>"
+          valid = false;
+        } else {
+          document.getElementById("errorZipCode").innerHTML = "";
+        }
+
+        let email = document.getElementById("emaillast").value;
+        if (email.length === 0 || email.length < 0) {
+          document.getElementById("errorEmail").innerHTML = "<label class='error-text'>Please enter a valid email address.</label>"
+          valid = false;
+        } else {
+          document.getElementById("errorEmail").innerHTML = "";
+          // valid = true;
+        }
+
+        if (valid) {
+          document.getElementById("next").scrollIntoView();
+
+          let name = document.getElementById("name").value;
+          document.getElementById("namevalid").innerHTML = name;
+
+          let title = document.getElementById("title").value;
+          document.getElementById("titlevalid").innerHTML = title;
+
+          let feet = document.getElementById("foot").value;
+          let inches = document.getElementById("inches").value;
+
+          document.getElementById("heightvalid").innerHTML = feet + " ft. " + inches + " in."; 
+
+          let phone = document.getElementById("phone").value;
+          document.getElementById("phonevalid").innerHTML = phone;
+
+          let address = document.getElementById("address").value;
+          document.getElementById("addressvalid").innerHTML = address;
+
+          let budget = document.getElementById("budget").value;
+          document.getElementById("budgetvalid").innerHTML = budget;
+
+          let email = document.getElementById("emaillast").value;
+          document.getElementById("emailvalid").innerHTML = email;
+        }
+        // document.getElementById("next").scrollIntoView();
+        // // let name = document.getElementById("name").value;
+        // document.getElementById("namevalid").innerHTML = name;
+
+        // let title = document.getElementById("title").value;
+        // document.getElementById("titlevalid").innerHTML = title;
+
+        // let feet = document.getElementById("foot").value;
+        // let inches = document.getElementById("inches").value;
+
+        // document.getElementById("heightvalid").innerHTML = feet + " ft. " + inches + " in."; 
+
+        // let phone = document.getElementById("phone").value;
+        // document.getElementById("phonevalid").innerHTML = phone;
+
+        // let address = document.getElementById("address").value;
+        // document.getElementById("addressvalid").innerHTML = address;
+
+        // let budget = document.getElementById("budget").value;
+        // document.getElementById("budgetvalid").innerHTML = budget;
+
+        // let email = document.getElementById("emaillast").value;
+        // document.getElementById("emailvalid").innerHTML = email;
+        
+      }
+    </script>
+
+    <div id="next" class="box">
+      <h1>Review</h1>
+      <label class="bold">Full Name</label>
+      <p id="namevalid">Not answered</p>
+
+      <label class="bold">Preferred Title</label>
+      <p id="titlevalid">Not answered</p>
+      <label class="bold">Height</label>
+      <p id="heightvalid">Not answered</p>
+      <label class="bold">Phone</label>
+      <p id="phonevalid">Not answered</p>
+      <label class="bold">Address</label>
+      <p id="addressvalid">Not answered</p>
+      <label class="bold">Services you require</label>
+      <p id="servicesvalid">Not answered</p>
+      <label class="bold">Monthly budget for services</label>
+      <p id="budgetvalid">Not answered</p>
+      <label class="bold">Email</label>
+      <p id="emailvalid">Not answered</p>
+    </div>
+</body>
+</html>
