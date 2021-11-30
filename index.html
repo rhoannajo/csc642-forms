@@ -185,7 +185,8 @@
           document.getElementById("phonevalid").innerHTML = phone;
 
           let address = document.getElementById("address").value;
-          document.getElementById("addressvalid").innerHTML = address;
+          let zipcode = document.getElementById("zipcode").value;
+          document.getElementById("addressvalid").innerHTML = address + ", " + zipcode;
 
           axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
           params: {
