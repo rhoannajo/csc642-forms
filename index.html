@@ -122,14 +122,6 @@
           document.getElementById("errorName").innerHTML = "";
         }
 
-        // let title = document.getElementById("title").value;
-        // if (title !== "none" || title !== "Student" || title !== "Professor" || title !== "Staff" || title !== "Retired") {
-        //   document.getElementById("errorTitle").innerHTML = "<label class='error-text'>Please enter title.</label>";
-        //   valid = false;
-        // } else {
-        //   document.getElementById("errorTitle").innerHTML = "";
-        //   valid = true;
-        // }
 
         let phone = document.getElementById("phone").value;
         if (phone.length > 10) {
@@ -205,7 +197,7 @@
           document.getElementById("googleMap").innerHTML += lat + ", " + lng;
           const destination = {lat, lng};
           const map = new google.maps.Map(document.getElementById("googleMap"), {
-            zoom: 4,
+            zoom: 10,
             center: destination,
           });
           const marker = new google.maps.Marker({
